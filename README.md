@@ -1,4 +1,4 @@
-# TaskInfoService
+# Тестовое задание Junior веб-программист (PHP / Laravel / Vue)
 
 Задание: Сделать форму обратной связи на Laravel:
  
