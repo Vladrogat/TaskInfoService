@@ -1,4 +1,4 @@
-<div class="">
-    <label for='{{$for}}' class="">{{$title}}</label>
+<div class="group">
+    <label for='{{$for}}' class="input lable">{{$title}}</label>
     {{$slot}}
 </div>
