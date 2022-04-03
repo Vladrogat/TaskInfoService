@@ -13,7 +13,7 @@ class ApplicationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class ApplicationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'bail|required|min:5',
+            'phone' => 'bail|required|min:11',
+            'company' => 'bail|required|min:5',
+            'title' => 'bail|required|min:5',
+            'message' => 'bail|required|min:5',
+            'file' => 'max:255'
         ];
     }
 }

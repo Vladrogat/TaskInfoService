@@ -1,0 +1,1 @@
+<input id="{{$id}}" type="password" name="{{$name}}" value="{{$value}}" class="input text" placeholder="{{$place}}">

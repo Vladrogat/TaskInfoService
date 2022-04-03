@@ -1,24 +1,26 @@
 <header class="">
     <div class="h-100 head">
         <ul class="menu">
-            @if (isset($_SESSION['authorized']))
-            <li>
-                login
-            </li>
-            <li>
-                Выйти
-            </li>
+            @if (!empty($user))
+                <li>
+                    {{$user->login}}
+                </li>
+                <li>
+                    <a class="middle" href="{{route('logout')}}">
+                        Выйти
+                    </a>
+                </li>
             @else
-            <li >
-                <a class="middle" href="{{route('registration')}}">
-                    Регистрация
-                </a>
-            </li>
-            <li >
-                <a class="middle" href="{{route('authorization')}}">
-                    Авторизация
-                </a>
-            </li>
+                <li >
+                    <a class="middle" href="{{route('registration')}}">
+                        Регистрация
+                    </a>
+                </li>
+                <li >
+                    <a class="middle" href="{{route('authorization')}}">
+                        Авторизация
+                    </a>
+                </li>
             @endif
         </ul>
     </div>
@@ -30,7 +32,7 @@
                     Форма обратной связи
                 </a>
             </li>
-            @if (isset($_SESSION['authorized']))
+            @if (!empty($user))
                 <li class="chapter">
                     <a class=" middle" href="{{route('list')}}">
                         Список заявок

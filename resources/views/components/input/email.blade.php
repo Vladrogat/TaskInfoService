@@ -1,1 +1,1 @@
-<input id="{{$id}}" type="email" class="input email" placeholder="john@example.com">
+<input id="{{$id}}" name="{{$name}}" type="email" class="input email" placeholder="john@example.com">

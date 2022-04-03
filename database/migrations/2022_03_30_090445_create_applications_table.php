@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('company');
             $table->string('title');
             $table->text('message');
-            $table->file('file');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

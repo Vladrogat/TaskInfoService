@@ -3,10 +3,11 @@
     border: 1px red;
 }
 .form {
+    max-height: 780px;
     box-sizing: border-box;
     border-radius: 5px;
     margin: -10px;
-    padding: 40px;
+    padding: 30px;
     background-color: rgba(240, 255, 255, 0.5);
 }
 input {
@@ -80,3 +81,25 @@ input {
 .file__input:before:hover {
     background-color: rgba(121, 2, 233, 0.932);
 }
+.error p {
+    margin: 0;
+}
+.success p {
+    margin: 0;
+}
+.error, .success {
+    margin: 5px;
+    padding: 10px 10px;
+    width: max-content;
+    border-radius: 10px;
+    text-align: center;
+}
+.error {
+    background: rgba(250, 0, 0, 0.904);
+    color: rgb(122, 0, 0);
+}
+.success {
+    color: green;
+    background: greenyellow;
+}
+

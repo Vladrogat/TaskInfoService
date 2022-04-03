@@ -1,1 +1,1 @@
-<input id="{{$id}}" type="text" name="{{$name}}" value="{{$value}}" class="input text" placeholder="{{$place}}">
+<input id="{{$id}}" type="text" name="{{$name}}" class="input text" placeholder="{{$place}}">

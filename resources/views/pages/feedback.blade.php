@@ -9,10 +9,8 @@
         <x-message.success :message="session('success')"/>
         @endif
 
-        <form method="post" action="{{route('feedback')}}">
-
+        <form method="post" action="{{route('create')}}">
             @csrf
-
             <div class="mt-8 max-w-md">
                 <div class="grid grid-cols-1 gap-6">
                     <x-input.group name="name" for='name' title="Имя" :errors="$errors">
@@ -38,10 +36,7 @@
                         <x-input.submit/>                       
                     </div>
                 </div>
-
             </div>
-
         </form>
-
     </div>
 @endsection

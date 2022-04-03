@@ -13,7 +13,7 @@
     <script src="https://unpkg.com/vue@3"></script>
     
     <div class="container h-100">
-        <x-panels.header/>
+        <x-panels.header :user="$user??''"/>
 
         <main class="middle w-100 d-flex justify-center mt-5 b-r-5">
             @yield('content')
