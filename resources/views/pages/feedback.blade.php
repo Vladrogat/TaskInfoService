@@ -9,7 +9,7 @@
         <x-message.success :message="session('success')"/>
         @endif
 
-        <form method="post" action="{{route('create')}}">
+        <form method="post" action="{{route('create')}}" enctype="multipart/form-data">
             @csrf
             <div class="mt-8 max-w-md">
                 <div class="grid grid-cols-1 gap-6">
@@ -33,7 +33,7 @@
                         <x-input.file id="body_field" name="file"/>
                     </div>
                     <div class="block">
-                        <x-input.submit/>                       
+                        <x-input.submit/>
                     </div>
                 </div>
             </div>

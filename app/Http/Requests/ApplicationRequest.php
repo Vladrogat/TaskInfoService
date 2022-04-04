@@ -25,11 +25,12 @@ class ApplicationRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|min:5',
-            'phone' => 'bail|required|min:11',
+            'phone' => 'required|min:11',
             'company' => 'bail|required|min:5',
             'title' => 'bail|required|min:5',
-            'message' => 'bail|required|min:5',
-            'file' => 'max:255'
+            'message' => 'required|min:5',
+            // поддерживаемые MIME файла (image/jpeg, image/png)
+            'file' => 'image|max:2048',
         ];
     }
 }

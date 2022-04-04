@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
@@ -20,7 +21,7 @@ class PageController extends Controller
     function list () {
         $user = Auth::user();
         $applications = Application::where('idUser', '=', $user->id)->get();
-        return view('pages.list', compact('user'));
+        return view('pages.list', compact('user', "applications"));
     }
 
     function feedback () {
@@ -30,12 +31,19 @@ class PageController extends Controller
     //-------Создание заявки-------//
 
     function create (ApplicationRequest $request) {
-        $fields = $request->validate();
+        $fields = $request->validated();
         $fields['idUser'] = Auth::check() ? Auth::user()->id : null;
-
+        $fields['phone'] = str_replace("+", "", $fields['phone']);
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName =time() . "_" . $file->getClientOriginalName();
+            $file->move(public_path() . '/uploads/application/',$fileName);
+            $fields["file"] = '/uploads/application/' . $fileName;
+        }
         Application::create($fields);
 
         return redirect(route('feedback'))->with('success', 'заявку создана');
+
     }
 
     //-----Аутентификация-----//
@@ -70,7 +78,7 @@ class PageController extends Controller
             $user = User::create($fields);
             if ($user) {
                 Mail::to($request->email)->send(new RegistrConfirm());
-                
+
                 Auth::login($user);
 
                 return redirect(route('list'));

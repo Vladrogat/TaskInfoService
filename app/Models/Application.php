@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Application extends Model
 {
+    public $guarded = [];
+
     use HasFactory;
 }

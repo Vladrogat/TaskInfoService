@@ -1,1 +1,1 @@
-<input id="{{$id}}" type="file" class="file__input">
+<input id="{{$id}}" name="{{$name}}" type="file" class="file__input">
